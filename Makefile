@@ -6,6 +6,10 @@ build:
 run:
 	bazel run //:go_dart_twirp_example
 
+.PHONY: clean
+clean:
+	bazel clean
+
 .PHONY: test
 test:
 	bazel test //...

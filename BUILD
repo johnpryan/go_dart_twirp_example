@@ -1,8 +1,7 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 load("@bazel_gazelle//:def.bzl", "gazelle")
 
-# gazelle:proto package
-# gazelle:proto_group go_package
+# gazelle:proto disable_global
 # gazelle:prefix github.com/johnpryan/go_dart_twirp_example
 gazelle(name = "gazelle")
 
@@ -21,5 +20,4 @@ go_binary(
     name = "go_dart_twirp_example",
     embed = [":go_default_library"],
     visibility = ["//visibility:public"],
-    deps = ["//src:demo_go_proto"]
 )
