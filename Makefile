@@ -16,4 +16,4 @@ gazelle:
 
 .PHONY: build_proto
 build_proto:
-	bazel build //src:person_go_proto
+	bazel build //src:demo_go_proto

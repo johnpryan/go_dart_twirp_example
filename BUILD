@@ -21,4 +21,5 @@ go_binary(
     name = "go_dart_twirp_example",
     embed = [":go_default_library"],
     visibility = ["//visibility:public"],
+    deps = ["//src:demo_go_proto"]
 )
