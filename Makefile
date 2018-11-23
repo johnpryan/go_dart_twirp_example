@@ -13,3 +13,7 @@ test:
 .PHONY: gazelle
 gazelle:
 	bazel run //:gazelle
+
+.PHONY: build_proto
+build_proto:
+	bazel build //src:person_go_proto

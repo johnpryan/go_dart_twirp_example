@@ -1,6 +1,8 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 load("@bazel_gazelle//:def.bzl", "gazelle")
 
+# gazelle:proto package
+# gazelle:proto_group go_package
 # gazelle:prefix github.com/johnpryan/go_dart_twirp_example
 gazelle(name = "gazelle")
 
