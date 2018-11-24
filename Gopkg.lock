@@ -8,6 +8,16 @@
   version = "v3.5.0"
 
 [[projects]]
+  name = "github.com/golang/protobuf"
+  packages = [
+    "jsonpb",
+    "proto",
+    "ptypes/struct"
+  ]
+  revision = "aa810b61a9c79d51363740d207bb46cf8e620ed5"
+  version = "v1.2.0"
+
+[[projects]]
   name = "github.com/labstack/echo"
   packages = ["."]
   revision = "c7eb8da9ec73e78c4f38413f3f835e0cd52c7d72"
@@ -33,6 +43,16 @@
   packages = ["."]
   revision = "6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c"
   version = "v0.0.4"
+
+[[projects]]
+  name = "github.com/twitchtv/twirp"
+  packages = [
+    ".",
+    "ctxsetters",
+    "internal/contextkeys"
+  ]
+  revision = "d08b9415baf292b016ed9c55c37e66154c46c221"
+  version = "v5.5.0"
 
 [[projects]]
   name = "github.com/valyala/bytebufferpool"
@@ -64,6 +84,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "f05b029be9a3969ccc81508992ec6d1e184e396d944c4d37637b8331dfabc6fa"
+  inputs-digest = "6fcb20250c9585ef5ff733a9937b2e3527a939cd9f6cd1650a53335632a37b67"
   solver-name = "gps-cdcl"
   solver-version = 1

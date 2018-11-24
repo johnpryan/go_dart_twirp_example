@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/caarlos0/env"
+	"github.com/johnpryan/go_dart_twirp_example/internal/haberdasherserver"
+	"github.com/johnpryan/go_dart_twirp_example/rpc/haberdasher"
 	"github.com/labstack/echo"
 	"net/http"
 )
@@ -20,9 +22,16 @@ func main() {
 
 	fmt.Printf("port = %v\n", environment.Port)
 	e := echo.New()
-	e.GET("/", func(c echo.Context) error {
+	e.GET("/api/hello", func(c echo.Context) error {
 		return c.String(http.StatusOK, "Hello, World!")
 	})
 
-	e.Logger.Fatal(e.Start(fmt.Sprintf(":%d", environment.Port)))
+	server := &haberdasherserver.Server{} // implements Haberdasher interface
+	twirpHandler := haberdasher.NewHaberdasherServer(server, nil)
+
+	mux := http.NewServeMux()
+	mux.Handle(haberdasher.HaberdasherPathPrefix, twirpHandler)
+	mux.Handle("/", e)
+
+	http.ListenAndServe(":8080", mux)
 }

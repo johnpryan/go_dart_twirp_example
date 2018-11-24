@@ -11,6 +11,8 @@ go_library(
     importpath = "github.com/johnpryan/go_dart_twirp_example",
     visibility = ["//visibility:private"],
     deps = [
+        "//internal/haberdasherserver:go_default_library",
+        "//rpc/haberdasher:go_default_library",
         "//vendor/github.com/caarlos0/env:go_default_library",
         "//vendor/github.com/labstack/echo:go_default_library",
     ],
