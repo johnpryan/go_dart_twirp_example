@@ -1,17 +1,32 @@
-load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@io_bazel_rules_go//proto:compiler.bzl", "go_proto_compiler")
+load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
 
-go_library(
-    name = "go_default_library",
+proto_library(
+    name = "haberdasher_proto",
     srcs = [
-        "service.pb.go",
-        "service.twirp.go",
+        "service.proto",
     ],
-    importpath = "github.com/johnpryan/go_dart_twirp_example/rpc/haberdasher",
     visibility = ["//visibility:public"],
+    deps = [],
+)
+
+go_proto_library(
+    name = "haberdasher_go_twirp_library",
+    importpath = "github.com/johnpryan/go_dart_twirp_example/rpc/haberdasher",
+    proto = ":haberdasher_proto",
+    visibility = ["//visibility:public"],
+    compilers = [
+        "twirp_library"
+    ],
+)
+
+go_proto_compiler(
+    name = "twirp_library",
+    options = [
+        "twirp_out=.",
+        "go_out=.",
+    ],
     deps = [
-        "//vendor/github.com/golang/protobuf/jsonpb:go_default_library",
         "//vendor/github.com/golang/protobuf/proto:go_default_library",
-        "//vendor/github.com/twitchtv/twirp:go_default_library",
-        "//vendor/github.com/twitchtv/twirp/ctxsetters:go_default_library",
     ],
 )

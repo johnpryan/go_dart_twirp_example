@@ -19,5 +19,4 @@ message Hat {
     int32 inches = 1;
     string color = 2; // anything but "invisible"
     string name = 3; // i.e. "bowler"
-    bool hasFeather = 4;
 }

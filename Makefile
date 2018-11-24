@@ -29,3 +29,7 @@ build_haberdasher_proto:
 .PHONY: test_haberdasher_proto
 test_haberdasher_proto:
 	bazel run //cmd/client
+
+.PHONY: haberdasher_go_twirp_library
+haberdasher_go_twirp_library:
+	bazel build //rpc/haberdasher:haberdasher_go_twirp_library
