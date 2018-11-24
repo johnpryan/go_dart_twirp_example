@@ -21,3 +21,7 @@ gazelle:
 .PHONY: build_proto
 build_proto:
 	bazel build //src:demo_go_proto
+
+.PHONY: build_haberdasher_proto
+build_haberdasher_proto:
+	bazel build //rpc/haberdasher:haberdasher_go_proto
