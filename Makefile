@@ -25,3 +25,7 @@ build_proto:
 .PHONY: build_haberdasher_proto
 build_haberdasher_proto:
 	bazel build //rpc/haberdasher:haberdasher_go_proto
+
+.PHONY: test_haberdasher_proto
+test_haberdasher_proto:
+	bazel run //cmd/client
