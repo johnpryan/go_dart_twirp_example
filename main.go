@@ -20,18 +20,18 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Printf("port = %v\n", environment.Port)
 	e := echo.New()
 	e.GET("/api/hello", func(c echo.Context) error {
 		return c.String(http.StatusOK, "Hello, World!")
 	})
 
-	server := &haberdasherserver.Server{} // implements Haberdasher interface
+	server := &haberdasherserver.Server{}
 	twirpHandler := haberdasher.NewHaberdasherServer(server, nil)
 
 	mux := http.NewServeMux()
 	mux.Handle(haberdasher.HaberdasherPathPrefix, twirpHandler)
 	mux.Handle("/", e)
 
-	http.ListenAndServe(":8080", mux)
+	fmt.Printf("Server running on port = %v\n", environment.Port)
+	http.ListenAndServe(fmt.Sprintf(":%d", environment.Port), mux)
 }

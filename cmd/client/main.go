@@ -11,7 +11,7 @@ import (
 
 func main() {
 	client := haberdasher.NewHaberdasherProtobufClient(
-		"http://localhost:8080", &http.Client{})
+		"http://localhost:9000", &http.Client{})
 
 	hat, err := client.MakeHat(
 		context.Background(), &haberdasher.Size{Inches: 12})
@@ -21,5 +21,5 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Printf("I have a nice new hat: %+v", hat)
+	fmt.Printf("I have a nice new hat: %+v\n", hat)
 }
