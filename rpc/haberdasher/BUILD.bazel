@@ -1,3 +1,4 @@
+# gazelle:ignore
 load("@io_bazel_rules_go//proto:compiler.bzl", "go_proto_compiler")
 load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
 
@@ -11,7 +12,7 @@ proto_library(
 )
 
 go_proto_library(
-    name = "haberdasher_go_twirp_library",
+    name = "go_default_library",
     importpath = "github.com/johnpryan/go_dart_twirp_example/rpc/haberdasher",
     proto = ":haberdasher_proto",
     visibility = ["//visibility:public"],
@@ -27,6 +28,11 @@ go_proto_compiler(
         "go_out=.",
     ],
     deps = [
-        "//vendor/github.com/golang/protobuf/proto:go_default_library",
+#        "//vendor/github.com/golang/protobuf/proto:go_default_library",
+#        "//vendor/github.com/twitch/twirp:go_default_library",
     ],
+#    plugin = "@com_github_golang_protobuf//protoc-gen-go",
+    plugin = "@com_github_twitchtv_twirp//protoc-gen-twirp",
+#    plugin = "@com_github_grpc_ecosystem_grpc_gateway//protoc-gen-grpc-gateway",
+    visibility = ["//visibility:public"],
 )
