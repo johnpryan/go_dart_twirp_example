@@ -7,19 +7,27 @@ http_archive(
     urls = ["https://github.com/google/protobuf/archive/v3.5.0.zip"],
 )
 
-http_archive(
+#########
+
+#http_archive(
+#    name = "com_github_johnpryan_twirp",
+#    sha256 = "109357b6e3a361fa3ede62d92e47c6feaa2a1454c864fbbcb3c6e6ae3175d44a",
+#    urls = ["https://github.com/johnpryan/twirp/archive/2fd87253451217ae35f6193b5fc7dbb59fcc90c7.zip"],
+#)
+
+#new_local_repository(
+#    name = "com_github_twitchtv_twirp",
+#    path = "/Users/john/code/go/src/github.com/twitchtv/twirp/protoc-gen-twirp",
+##    build_file = "BUILD.twirp.bzl",
+#)
+
+new_local_repository(
     name = "com_github_twitchtv_twirp",
-    sha256 = "d08b9415baf292b016ed9c55c37e66154c46c221",
-    strip_prefix = "v5.5.0",
-    urls = ["https://github.com/twitchtv/twirp/archive/v5.5.0.zip"],
+    path = "/Users/john/code/go/src/github.com/twitchtv/twirp",
+    build_file = "BUILD.twirp.bzl",
 )
 
-http_archive(
-    name = "com_github_grpc_ecosystem_grpc_gateway",
-    sha256 = "aeab1d96e0f1368d243e2e5f526aa29d495517bb",
-    strip_prefix = "v1.5.1",
-    urls = ["https://github.com/grpc-ecosystem/grpc-gateway/archive/v1.5.1.zip"],
-)
+###########
 
 http_archive(
     name = "io_bazel_rules_go",
