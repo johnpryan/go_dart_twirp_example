@@ -6,9 +6,9 @@
   name = "github.com/labstack/echo"
   version = "3.3.8"
 
-[[constraint]]
-  name = "github.com/twitchtv/twirp"
-  version = "5.5.0"
+#[[constraint]]
+#  name = "github.com/twitchtv/twirp"
+#  version = "5.5.0"
 
 [prune]
   go-tests = true

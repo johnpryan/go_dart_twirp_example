@@ -15,6 +15,9 @@ go_proto_library(
     importpath = "github.com/johnpryan/go_dart_twirp_example/rpc/haberdasher",
     proto = ":haberdasher_proto",
     visibility = ["//visibility:public"],
+    deps = [
+        "@com_github_twitchtv_twirp//protoc-gen-twirp:go_default_library",
+    ],
     compilers = [
         "twirp_library",
     ],
@@ -22,10 +25,6 @@ go_proto_library(
 
 go_proto_compiler(
     name = "twirp_library",
-    options = [
-        "twirp_out=.",
-        "go_out=.",
-    ],
-    plugin = "@com_github_twitchtv_twirp//:go_default_library",
+    plugin = "@com_github_twitchtv_twirp//protoc-gen-twirp:protoc-gen-twirp",
     visibility = ["//visibility:public"],
 )

@@ -1,7 +1,7 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 load("@bazel_gazelle//:def.bzl", "gazelle")
 
-# gazelle:prefix github.com/johnpryan/twirp
+# gazelle:prefix github.com/twitchtv/twirp
 gazelle(name = "gazelle")
 
 go_library(
@@ -11,9 +11,9 @@ go_library(
         "errors.go",
         "hooks.go",
     ],
-    importpath = "github.com/johnpryan/twirp",
+    importpath = "github.com/twitchtv/twirp",
     visibility = ["//visibility:public"],
-    deps = ["@com_github_twitchtv_twirp//internal/contextkeys:go_default_library"],
+    deps = ["//internal/contextkeys:go_default_library"],
 )
 
 go_test(

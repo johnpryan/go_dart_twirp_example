@@ -18,18 +18,18 @@ test:
 gazelle:
 	bazel run //:gazelle
 
-.PHONY: build_proto
-build_proto:
+.PHONY: build_src
+build_src:
 	bazel build //src:demo_go_proto
 
 .PHONY: build_haberdasher_proto
 build_haberdasher_proto:
-	bazel build //rpc/haberdasher:haberdasher_go_proto
+	bazel build //rpc/haberdasher:go_default_library
 
-.PHONY: test_haberdasher_proto
-test_haberdasher_proto:
+.PHONY: integration_test
+integration_test:
 	bazel run //cmd/client
 
-.PHONY: haberdasher_go_twirp_library
-haberdasher_go_twirp_library:
-	bazel build //rpc/haberdasher:haberdasher_go_twirp_library
+#.PHONY: haberdasher_go_twirp_library
+#haberdasher_go_twirp_library:
+#	bazel build //rpc/haberdasher:haberdasher_go_twirp_library
