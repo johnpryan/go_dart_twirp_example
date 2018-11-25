@@ -24,7 +24,8 @@ go_proto_library(
 )
 
 go_proto_compiler(
-    name = "twirp_library",
-    plugin = "@com_github_twitchtv_twirp//protoc-gen-twirp:protoc-gen-twirp",
+    name = "go_twirp",
+    options = ["plugins=twirp"],
     visibility = ["//visibility:public"],
+    plugin = "@com_github_twitchtv_twirp//protoc-gen-twirp:protoc-gen-twirp",
 )
